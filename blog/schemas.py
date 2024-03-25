@@ -1,7 +1,9 @@
 from typing import List
 from pydantic import BaseModel
 
-
+class Login(BaseModel):
+    username:str
+    password:str
 
 class User(BaseModel):
     name:str
@@ -35,3 +37,11 @@ class ShowBlog(BaseModel):
     creator: ShowUser
     class Config():
         from_attributes = True
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    username: str | None = None
